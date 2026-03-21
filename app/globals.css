@@ -1,26 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* ── Existing Geist variables (keep for dashboard pages) ── */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ── New display font for landing page headings ─────────── */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-body:  'DM Sans', system-ui, sans-serif;
+
+  /* ── Brand color tokens ──────────────────────────────────── */
+  --color-brand-bg:       #0C1208;
+  --color-brand-surface:  #141A0E;
+  --color-brand-surface2: #1C2416;
+  --color-brand-border:   #2D3A22;
+  --color-brand-em:       #A8D44C;
+  --color-brand-em2:      #7DB82A;
+  --color-brand-text:     #F0EDE5;
+  --color-brand-muted:    #8A9478;
+  --color-brand-muted2:   #6B7A5A;
+  --color-brand-gold:     #D4A853;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Default for dashboard/auth pages — light gray */
+  background-color: #f9fafb;
+  color: #111827;
+  font-family: var(--font-sans), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Landing page overrides ────────────────────────────────────────────────── */
+/* Applied when body has class "landing" — set this in the landing page layout  */
+/* or use the bg-[#0C1208] utility directly on the page wrapper (already done). */
+
+/* font-serif utility → Fraunces */
+.font-serif {
+  font-family: 'Fraunces', Georgia, serif !important;
+}
+
+/* ── Selection ─────────────────────────────────────────────────────────────── */
+/* Default (dashboard pages) */
+::selection {
+  background-color: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+/* Landing page dark sections */
+.bg-\[\#0C1208\] ::selection,
+.bg-\[\#141A0E\] ::selection {
+  background-color: rgba(168, 212, 76, 0.25);
+  color: #F0EDE5;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D3A22;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B7A5A;
+}
+
+/* ── Focus ring ────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #A8D44C;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
