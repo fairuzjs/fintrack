@@ -26,9 +26,10 @@ FinTrack adalah sistem pencatatan dan manajemen keuangan pribadi interaktif yang
     *   Modal UI Interaktif untuk pendaftaran transaksi (dioptimalkan dari tampilan desain `AddTransactionModal` terbaru).
     *   Data langsung diinterpolasikan untuk perhitungan saldo (*balance*).
 
-*   **Laporan & Ekspor Data**
+*   **Currency Converter & Pelaporan Data**
+    *   Integrasi *Currency Converter* untuk mengonversi nilai tukar atau estimasi transaksi ke berbagai mata uang asing.
     *   Filter komprehensif atas daftar riwayat transaksi berdasarkan waktu dan ketersediaan kategori.
-    *   Sistem ekspor riwayat mutasi keuangan langsung menjadi sebuah dokumen PDF (*DownloadPdfButton* memanfaatkan `jsPDF` & `jsPDF-autotable`).
+    *   Sistem ekspor riwayat mutasi keuangan langsung menjadi sebuah dokumen PDF (*DownloadPdfButton* memanfaatkan `jsPDF`).
     *   Dashboard interaktif terpusat yang ditenagai oleh animasi transisi halus dari `Framer Motion`.
 
 ---
@@ -39,17 +40,15 @@ Berikut adalah tampilan antarmuka (*User Interface*) dan cuplikan visualisasi ut
 
 ### 1. Dashboard Utama
 Ringkasan ringkas terkait saldo (*balance*) saat ini, rekapitulasi masuk, rekapitulasi keluar, beserta *chart* atau statistik keseluruhan.
-![1. Preview Dashboard FinTrack](https://placehold.co/1200x675/111827/ffffff.png?text=1.+Dashboard+%26+Overview&font=montserrat)
+![1. Preview Dashboard FinTrack](./public/screenshoot/dashboard.jpg)
 
 ### 2. Manajemen Transaksi 
 Halaman interaktif dan modal *popup* yang memungkinkan Anda mengklasifikasikan pendataan (*Add Transaction/Expenses*).
-![2. Manajemen Transaksi](https://placehold.co/1200x675/111827/ffffff.png?text=2.+Transaction+Management&font=montserrat)
+![2. Manajemen Transaksi](./public/screenshoot/transaction.jpg)
 
-### 3. Rekap Laporan & Export PDF
-Tabel historis dengan *layout* elegan dan fitur cetak komprehensif yang di-generate via *client-side*.
-![3. Ekspor PDF](https://placehold.co/1200x675/111827/ffffff.png?text=3.+Historical+Report+%26+PDF+Export&font=montserrat)
-
-> **Catatan:** *Ganti URL gambar placeholder di atas dengan file *.png* dari screenshot asli proyek Anda ke depannya (disarankan menyimpan di folder `public/screenshots/...`) agar tampilan README terlihat lebih akurat untuk sistem riil.*
+### 3. Currency Converter
+Fitur konversi mata uang untuk memudahkan pengecekan dan estimasi nilai tukar ke berbagai mata uang global secara *real-time*.
+![3. Currency Converter](./public/screenshoot/currency.jpg)
 
 ---
 
