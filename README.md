@@ -9,93 +9,93 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
 </p>
 
-FinTrack adalah sistem pencatatan dan manajemen keuangan pribadi interaktif yang dibangun menggunakan Next.js. Aplikasi ini menyediakan platform mutakhir serta terstruktur dengan baik untuk mengelola transaksi masuk dan keluar, manajemen kategori khusus, percetakan dan unduh laporan otomatis ke PDF, dipadukan dengan keamanan autentikasi pengguna secara mandiri.
+FinTrack is an interactive personal finance tracking and management system built with Next.js. This application provides a modern and well-structured platform for managing income and export transactions, custom category management, automated report generation and PDF downloads, combined with secure standalone user authentication.
 
-## ✨ Fitur Utama
+## ✨ Key Features
 
-### 👥 Untuk Pengguna / Personal
+### 👥 For Users / Personal
 
-*   **Autentikasi Aman & Multi-Channel**
-    *   Login dan Pendaftaran akun difasilitasi dengan `NextAuth.js`.
-    *   Kredensial dan kata sandi diamankan menggunakan implementasi hashing `bcryptjs`.
-    *   Penyimpanan sesi serta informasi keamanan akun di database (PostgreSQL + Prisma Enum).
+*   **Secure & Multi-Channel Authentication**
+    *   Login and account registration are securely facilitated with `NextAuth.js`.
+    *   Credentials and passwords are secured using `bcryptjs` hashing implementation.
+    *   Session and account security information storage in the database (PostgreSQL + Prisma Enum).
 
-*   **Manajemen Keuangan & Arus Kas**
-    *   Pencatatan Pemasukan (*Income*) dan Pengeluaran (*Expense*) harian secara fleksibel dan *real-time*.
-    *   Kategorisasi terpadu untuk pencatatan (contoh: Gaji bulanan, Kebutuhan harian, Cicilan, dll).
-    *   Modal UI Interaktif untuk pendaftaran transaksi (dioptimalkan dari tampilan desain `AddTransactionModal` terbaru).
-    *   Data langsung diinterpolasikan untuk perhitungan saldo (*balance*).
+*   **Financial & Cash Flow Management**
+    *   Flexible and *real-time* recording of daily Incomes and Expenses.
+    *   Integrated categorization for records (e.g., Monthly salary, Daily needs, Installments, etc.).
+    *   Interactive UI Modal for transaction registration (optimized with the latest `AddTransactionModal` component).
+    *   Data is seamlessly interpolated for real-time balance calculations.
 
-*   **Currency Converter & Pelaporan Data**
-    *   Integrasi *Currency Converter* untuk mengonversi nilai tukar atau estimasi transaksi ke berbagai mata uang asing.
-    *   Filter komprehensif atas daftar riwayat transaksi berdasarkan waktu dan ketersediaan kategori.
-    *   Sistem ekspor riwayat mutasi keuangan langsung menjadi sebuah dokumen PDF (*DownloadPdfButton* memanfaatkan `jsPDF`).
-    *   Dashboard interaktif terpusat yang ditenagai oleh animasi transisi halus dari `Framer Motion`.
+*   **Currency Converter & Data Reporting**
+    *   *Currency Converter* integration to accurately convert and estimate transaction values into various foreign exchange rates.
+    *   Comprehensive filters on the transaction history list based on timeframes and category availability.
+    *   Direct financial mutation history export into a tidy PDF document (`DownloadPdfButton` utilizes `jsPDF`).
+    *   Centralized interactive dashboard powered by smooth transition animations from `Framer Motion`.
 
 ---
 
-## 📸 Preview Proyek
+## 📸 Project Previews
 
-Berikut adalah tampilan antarmuka (*User Interface*) dan cuplikan visualisasi utama dari sistem FinTrack:
+Here are the *User Interface* displays and main visual snippets of the FinTrack system:
 
-### 1. Dashboard Utama
-Ringkasan ringkas terkait saldo (*balance*) saat ini, rekapitulasi masuk, rekapitulasi keluar, beserta *chart* atau statistik keseluruhan.
-![1. Preview Dashboard FinTrack](./public/screenshoot/dashboard.jpg)
+### 1. Main Dashboard
+A concise summary regarding current balance, total income, total spent, along with overall charts or statistics.
+![1. FinTrack Dashboard Preview](./public/screenshoot/dashboard.jpg)
 
-### 2. Manajemen Transaksi 
-Halaman interaktif dan modal *popup* yang memungkinkan Anda mengklasifikasikan pendataan (*Add Transaction/Expenses*).
-![2. Manajemen Transaksi](./public/screenshoot/transaction.jpg)
+### 2. Transaction Management
+An interactive page and *popup* modal that allows you to classify data records (*Add Transaction/Expenses*).
+![2. Transaction Management](./public/screenshoot/transaction.jpg)
 
 ### 3. Currency Converter
-Fitur konversi mata uang untuk memudahkan pengecekan dan estimasi nilai tukar ke berbagai mata uang global secara *real-time*.
+Currency conversion feature to facilitate the checking and estimation of exchange rates to various global currencies in *real-time*.
 ![3. Currency Converter](./public/screenshoot/currency.jpg)
 
 ---
 
-## 🚀 Panduan Instalasi Lokal
+## 🚀 Local Installation Guide
 
-### Persyaratan Sistem
-*   **Node.js** versi 18+ (atau 20+)
-*   Database relasional seperti **PostgreSQL** atau MySQL (Proyek ini secara *default* menggunakan PostgreSQL).
+### System Requirements
+*   **Node.js** version 18+ (or 20+)
+*   Relational database such as **PostgreSQL** or MySQL (This project natively uses PostgreSQL).
 
-### Langkah-langkah Menjalankan Sistem
+### Steps to Run the Application
 
-1. **Klonasi / Unduh Repositori Project**
+1. **Clone the Project Repository**
    ```bash
-   git clone https://github.com/username-anda/fintrack.git
+   git clone https://github.com/your-username/fintrack.git
    cd fintrack
    ```
 
-2. **Instalasi Modul Dependensi**
+2. **Install Dependencies**
    ```bash
    npm install
-   # Atau jika Anda menggunakan manajer package lain: yarn install / pnpm install
+   # Or if you use another package manager: yarn install / pnpm install
    ```
 
-3. **Inisialisasi Environment Variables**
-   Buat file bernama `.env` di root direktori dan sesuaikan parameter berikut:
+3. **Initialize Environment Variables**
+   Create a `.env` file in the root directory and adjust the following parameters:
    ```env
-   # Koneksi Database URL
+   # Database Connection URL
    DATABASE_URL="postgresql://user:password@localhost:5432/fintrack?schema=public"
 
-   # Konfigurasi Keamanan NextAuth
+   # NextAuth Security Configuration
    NEXTAUTH_URL="http://localhost:3000"
-   NEXTAUTH_SECRET="masukkan-kode-secara-random-di-sini"
+   NEXTAUTH_SECRET="insert-your-random-secret-key-here"
    ```
 
-4. **Konfigurasi Database (Prisma ORM)**
-   Sync definisi skema dari `schema.prisma` ke koneksi database di `.env`:
+4. **Initialize Database (Prisma ORM)**
+   Sync the schema definition from `schema.prisma` to the database connection in `.env`:
    ```bash
    npx prisma generate
    npx prisma db push
    ```
 
-5. **Nyalakan Server di Mode Pengembangan (*Development*)**
+5. **Start the Development Server**
    ```bash
    npm run dev
    ```
 
-Buka URL `http://localhost:3000` di peramban (browser) untuk melihat dan berinteraksi secara lokal bersama FinTrack!
+Open `http://localhost:3000` on your browser to view and interact with FinTrack locally!
 
 ---
-© **2026 FinTrack Project**. Dibangun untuk pencatatan mandiri yang aman dan cepat. Lisensi proyek ini menggunakan **MIT**.
+© **2026 FinTrack Project**. Built for secure and fast self-recording. Licensed under **MIT**.
